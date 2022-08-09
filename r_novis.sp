@@ -1,6 +1,6 @@
 #include <sourcemod>
 
-ConVar sv_cheats;
+ConVar CV_CheatsOn;
 
 public Plugin myinfo =
 {
@@ -10,16 +10,16 @@ public Plugin myinfo =
 
 public void OnPluginStart()
 {
-	sv_cheats = FindConVar("sv_cheats");
+	CV_CheatsOn = FindConVar("sv_cheats");
 	HookEvent("player_spawn", Event_PlayerSpawn, EventHookMode_Post);
 }
 
 public void Event_PlayerSpawn(Event event, const char[] name, bool dontBroadcast)
 {
-	int client = GetClientOfUserId(event.GetInt("userid"));
+	int iClient = GetClientOfUserId(event.GetInt("userid"));
 	
-	if(!IsFakeClient(client))
+	if(!IsFakeClient(iClient))
 	{
-		SendConVarValue(client, sv_cheats, "2");
+		SendConVarValue(iClient, CV_CheatsOn, "2");
 	}
 }
