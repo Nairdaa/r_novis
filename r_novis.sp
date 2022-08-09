@@ -5,6 +5,7 @@ ConVar sv_cheats;
 public Plugin myinfo =
 {
 	name = "novis - type 'r_novis 1' in console to see the entire fucking map in fucking noclip. CSGO sucks.",
+	description = "Volvo™ sucks"
 };
 
 public void OnPluginStart()
